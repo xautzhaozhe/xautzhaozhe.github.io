@@ -1,886 +1,779 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zhe Zhao | Academic Homepage</title>
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --card: rgba(255, 255, 255, 0.94);
-      --text: #1d1d1f;
-      --subtle: #3f4247;
-      --muted: #6b7078;
-      --line: #e5e5ea;
-      --link: #0066cc;
-      --chip: #f2f2f4;
-      --chip-text: #52565c;
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
-      --soft-shadow: 0 8px 26px rgba(0, 0, 0, 0.045);
-      --radius: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
-      line-height: 1.58;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 34rem),
-        var(--bg);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 34px 20px 42px;
-    }
-
-    .top-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .nav-name {
-      font-weight: 650;
-      color: var(--text);
-      letter-spacing: -0.01em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.12s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--link);
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.74);
-      border-radius: var(--radius);
-      padding: 34px 36px;
-      margin-bottom: 20px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 42px;
-      align-items: center;
-    }
-
-    .profile-photo-wrap {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      justify-self: end;
-      width: fit-content;
-      border-radius: 24px;
-      overflow: hidden;
-      background: #fff;
-      border: 1px solid var(--line);
-      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
-    }
-
-    .profile-photo {
-      height: 180px;
-      width: auto;
-      display: block;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: 42px;
-      line-height: 1.12;
-      letter-spacing: -0.045em;
-      font-weight: 760;
-    }
-
-    h2 {
-      margin: 0 0 20px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--line);
-      font-size: 25px;
-      line-height: 1.25;
-      letter-spacing: -0.025em;
-      font-weight: 720;
-    }
-
-    h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      line-height: 1.35;
-      letter-spacing: -0.015em;
-      font-weight: 700;
-    }
-
-    p {
-      margin: 6px 0;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .identity {
-      font-size: 17px;
-      color: var(--subtle);
-      margin-bottom: 10px;
-    }
-
-    .about-line {
-      max-width: 760px;
-      margin-top: 12px;
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.62;
-    }
-
-    .links {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .pill-link,
-    .mini-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: all 0.16s ease;
-      white-space: nowrap;
-    }
-
-    .pill-link {
-      padding: 5px 13px;
-      border: 1px solid #d7e6fb;
-      background: rgba(247, 250, 255, 0.9);
-      color: var(--link);
-      font-size: 14.5px;
-      line-height: 1.5;
-    }
-
-    .pill-link:hover,
-    .mini-link:hover {
-      text-decoration: none;
-      background: #edf5ff;
-      border-color: #bfd8f7;
-      transform: translateY(-1px);
-    }
-
-    .mini-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 7px;
-    }
-
-    .mini-link {
-      padding: 4px 10px;
-      border: 1px solid #e1e7f0;
-      background: #fbfcff;
-      color: var(--link);
-      font-size: 13.5px;
-      line-height: 1.45;
-    }
-
-    .item-title {
-      font-weight: 680;
-      font-size: 17px;
-      line-height: 1.42;
-      letter-spacing: -0.01em;
-    }
-
-    .muted {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.48;
-    }
-
-    .authors {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.45;
-    }
-
-    .me {
-      color: var(--text);
-      font-weight: 720;
-    }
-
-    .highlight {
-      margin: 6px 0 5px;
-      color: #343840;
-      font-size: 14.8px;
-      line-height: 1.5;
-    }
-
-    .highlight-label {
-      color: var(--text);
-      font-weight: 680;
-    }
-
-    .tag {
-      display: inline-block;
-      margin: 7px 7px 0 0;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: var(--chip);
-      color: var(--chip-text);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .publication-card {
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      gap: 22px;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid #f0f0f2;
-    }
-
-    .publication-card:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .publication-cover-wrap {
-      width: 250px;
-      height: 150px;
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid #e6e8ec;
-      box-shadow: var(--soft-shadow);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      align-self: center;
-    }
-
-    .publication-cover {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      padding: 8px;
-      background: #fff;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .project-card,
-    .note-card,
-    .info-panel {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid #eceef2;
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.032);
-    }
-
-    .project-card {
-      min-height: 178px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project-title {
-      font-size: 17px;
-      font-weight: 720;
-      letter-spacing: -0.012em;
-      margin-bottom: 6px;
-    }
-
-    .project-desc {
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.55;
-    }
-
-    .more-block {
-      margin-top: 14px;
-    }
-
-    details {
-      margin-top: 8px;
-    }
-
-    summary {
-      cursor: pointer;
-      color: var(--muted);
-      font-size: 14.5px;
-      user-select: none;
-      transition: color 0.12s ease;
-    }
-
-    summary:hover {
-      color: var(--link);
-    }
-
-    details[open] summary {
-      margin-bottom: 10px;
-      color: var(--link);
-    }
-
-    .more-project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .experience-awards-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 14px;
-    }
-
-    .timeline {
-      position: relative;
-      display: grid;
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 38px 1fr;
-      gap: 11px;
-      align-items: start;
-    }
-
-    .school-logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      object-fit: contain;
-      background: #fff;
-      border: 1px solid var(--line);
-      padding: 1px;
-      display: block;
-    }
-
-    .timeline-time {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-      margin-bottom: 2px;
-    }
-
-    .timeline-title {
-      font-size: 15.5px;
-      line-height: 1.5;
-      color: var(--text);
-      font-weight: 620;
-    }
-
-    .award-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 12px;
-    }
-
-    .award-chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 11px;
-      border-radius: 999px;
-      background: #f7f7f9;
-      border: 1px solid #eceef2;
-      color: #343840;
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .note-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .note-card {
-      min-height: 250px;
-    }
-
-    .section-note {
-      color: var(--muted);
-      font-size: 14.5px;
-      margin: 0 0 9px;
-    }
-
-    .post-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .post-list li {
-      position: relative;
-      margin-bottom: 7px;
-      padding-left: 15px;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .post-list li::before {
-      content: "";
-      position: absolute;
-      left: 1px;
-      top: 0.72em;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #aeb4bd;
-    }
-
-    .post-list a {
-      color: var(--text);
-      text-decoration: none;
-      transition: color 0.12s ease;
-    }
-
-    .post-list a:hover {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    .footer {
-      text-align: center;
-      color: #8a8f98;
-      font-size: 13.5px;
-      padding: 8px 0 24px;
-    }
-
-    @media (max-width: 900px) {
-      .project-grid,
-      .more-project-grid,
-      .note-grid,
-      .experience-awards-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .note-card,
-      .project-card {
-        min-height: auto;
-      }
-    }
-
-    @media (max-width: 820px) {
-      .container {
-        padding: 24px 14px 36px;
-      }
-
-      .top-nav {
-        display: none;
-      }
-
-      .card {
-        padding: 26px 24px;
-        border-radius: 20px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .profile-photo-wrap {
-        justify-self: center;
-        width: fit-content;
-      }
-
-      .profile-photo {
-        height: 155px;
-      }
-
-      .publication-card {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        align-items: start;
-      }
-
-      .publication-cover-wrap {
-        width: 100%;
-        height: 210px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      h1 {
-        font-size: 34px;
-      }
-
-      h2 {
-        font-size: 23px;
-      }
-
-      .identity,
-      .about-line {
-        font-size: 15.5px;
-      }
-
-      .links {
-        gap: 8px;
-      }
-
-      .pill-link {
-        font-size: 14px;
-        padding: 5px 11px;
-      }
-
-      .publication-cover-wrap {
-        height: 190px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhe Zhao | Academic Homepage</title>
+    <style>
+        :root {
+            --bg: #f5f5f7;
+            --card: rgba(255, 255, 255, 0.94);
+            --text: #1d1d1f;
+            --subtle: #3f4247;
+            --muted: #6b7078;
+            --line: #e5e5ea;
+            --link: #0066cc;
+            --chip: #f2f2f4;
+            --chip-text: #52565c;
+            --shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
+            --soft-shadow: 0 8px 26px rgba(0, 0, 0, 0.045);
+            --radius: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.58;
+            color: var(--text);
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 34rem), var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 34px 20px 42px;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .nav-name {
+            font-weight: 650;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+            .nav-links a {
+                color: var(--muted);
+                text-decoration: none;
+                transition: color 0.12s ease;
+            }
+
+                .nav-links a:hover {
+                    color: var(--link);
+                }
+
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.74);
+            border-radius: var(--radius);
+            padding: 34px 36px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(18px);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 42px;
+            align-items: center;
+        }
+
+        .profile-photo-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            justify-self: end;
+            width: fit-content;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid var(--line);
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-photo {
+            height: 180px;
+            width: auto;
+            display: block;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 42px;
+            line-height: 1.12;
+            letter-spacing: -0.045em;
+            font-weight: 760;
+        }
+
+        h2 {
+            margin: 0 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--line);
+            font-size: 25px;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+            font-weight: 720;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            line-height: 1.35;
+            letter-spacing: -0.015em;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 6px 0;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        .identity {
+            font-size: 17px;
+            color: var(--subtle);
+            margin-bottom: 10px;
+        }
+
+        .about-line {
+            max-width: 760px;
+            margin-top: 12px;
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.62;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        .about-line-zh {
+            max-width: 760px;
+            margin-top: 8px;
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.62;
+            border-top: 1px dashed var(--line);
+            padding-top: 12px;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        .links {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pill-link,
+        .mini-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: all 0.16s ease;
+            white-space: nowrap;
+        }
+
+        .pill-link {
+            padding: 5px 13px;
+            border: 1px solid #d7e6fb;
+            background: rgba(247, 250, 255, 0.9);
+            color: var(--link);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+
+            .pill-link:hover,
+            .mini-link:hover {
+                text-decoration: none;
+                background: #edf5ff;
+                border-color: #bfd8f7;
+                transform: translateY(-1px);
+            }
+
+        .mini-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 7px;
+        }
+
+        .mini-link {
+            padding: 4px 10px;
+            border: 1px solid #e1e7f0;
+            background: #fbfcff;
+            color: var(--link);
+            font-size: 13.5px;
+            line-height: 1.45;
+        }
+
+        /* ---- 新的论文列表样式 ---- */
+        .pub-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .pub-list li {
+                display: block;
+                padding: 4px 0;
+                border-bottom: 1px solid #f0f0f2;
+                font-size: 15px;
+                line-height: 1.5;
+                text-align: justify;
+            }
+
+                .pub-list li:last-child {
+                    border-bottom: none;
+                }
+
+        .pub-number {
+            font-weight: 700;
+            color: var(--text);
+            margin-right: 4px;
+        }
+
+        .pub-authors {
+            color: var(--subtle);
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .pub-journal {
+            color: black; /* 或 red，建议用 #cc0000 更正式 */
+            font-style: italic;
+        }
+
+        .pub-meta {
+            color: var(--link);
+            font-weight: 500;
+            margin-left: 4px;
+        }
+
+        .pub-author-me {
+            font-weight: 700;
+            color: #003366;
+        }
+
+        /* 其余原有样式 */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .project-card,
+        .note-card,
+        .info-panel {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid #eceef2;
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.032);
+        }
+
+        .project-card {
+            min-height: 178px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-title {
+            font-size: 17px;
+            font-weight: 720;
+            letter-spacing: -0.012em;
+            margin-bottom: 6px;
+        }
+
+        .project-desc {
+            color: var(--muted);
+            font-size: 14.5px;
+            line-height: 1.55;
+        }
+
+        .more-block {
+            margin-top: 14px;
+        }
+
+        details {
+            margin-top: 8px;
+        }
+
+        summary {
+            cursor: pointer;
+            color: var(--muted);
+            font-size: 14.5px;
+            user-select: none;
+            transition: color 0.12s ease;
+        }
+
+            summary:hover {
+                color: var(--link);
+            }
+
+        details[open] summary {
+            margin-bottom: 10px;
+            color: var(--link);
+        }
+
+        .more-project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 38px 1fr;
+            gap: 11px;
+            align-items: start;
+        }
+
+        .school-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: #fff;
+            border: 1px solid var(--line);
+            padding: 1px;
+            display: block;
+        }
+
+        .timeline-time {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.45;
+            margin-bottom: 2px;
+        }
+
+        .timeline-title {
+            font-size: 15.5px;
+            line-height: 1.5;
+            color: var(--text);
+            font-weight: 620;
+        }
+
+            .timeline-title .zh-desc {
+                font-weight: 400;
+                color: var(--muted);
+                font-size: 14px;
+                display: block;
+                margin-top: 2px;
+            }
+
+        .honor-list {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0 0;
+        }
+
+            .honor-list li {
+                padding: 8px 0;
+                border-bottom: 1px solid #f0f0f2;
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+                .honor-list li:last-child {
+                    border-bottom: none;
+                }
+
+        .footer {
+            text-align: center;
+            color: #8a8f98;
+            font-size: 13.5px;
+            padding: 8px 0 24px;
+        }
+
+        @media (max-width: 900px) {
+            .project-grid,
+            .more-project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 820px) {
+            .container {
+                padding: 24px 14px 36px;
+            }
+
+            .top-nav {
+                display: none;
+            }
+
+            .card {
+                padding: 26px 24px;
+                border-radius: 20px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .profile-photo-wrap {
+                justify-self: center;
+                width: fit-content;
+            }
+
+            .profile-photo {
+                height: 155px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            h1 {
+                font-size: 34px;
+            }
+
+            h2 {
+                font-size: 23px;
+            }
+
+            .identity,
+            .about-line,
+            .about-line-zh {
+                font-size: 15.5px;
+            }
+
+            .links {
+                gap: 8px;
+            }
+
+            .pill-link {
+                font-size: 14px;
+                padding: 5px 11px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <main class="container">
-    <nav class="top-nav">
-      <div class="nav-name">Zhe Zhao</div>
-      <div class="nav-links">
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#notes">Notes</a>
-      </div>
-    </nav>
-
-    <section class="card hero">
-      <div>
-        <h1>Zhe Zhao</h1>
-
-        <p class="identity">
-          
-        </p>
-
-        <p class="about-line">
-            My name is Zhe Zhao. I received my Bachelor's and Master's degrees from Xi'an University of Technology in 2019 and 2022, respectively, and I began my doctoral studies at Xidian University in 2023. 
-            My primary research interests lie in infrared and hyperspectral image processing, as well as anomaly detection. 
-            I have authored or co-authored over ten papers in leading journals, including PR, JAG, IPM, and IEEE JSTARS. 
-            In addition, I served as a reviewer for journals like IEEE TCSVT, IEEE TPAMA, JAG, PR, and IPM. 
-            I was awarded the National Scholarship for both master's and doctoral Students in 2021 and 2025, respectively.
-        </p>
-
-        <div class="links">
-          <a class="pill-link" href="mailto:23201110758@stu.xidian.edu.cn">Email</a>
-          <a class="pill-link" href="https://github.com/xautzhaozhe/MrsNet" target="_blank">GitHub</a>
-          <a class="pill-link" href="https://scholar.google.com/citations?user=BIgfI08AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
-          <a class="pill-link" href="https://orcid.org/0009-0003-1305-9546" target="_blank">ORCID</a>
-          <a class="pill-link" href="#" target="_blank">ResearchGate</a>
-        </div>
-      </div>
-
-      <div class="profile-photo-wrap">
-        <img src="assets/profile.jpg" alt="Profile photo" class="profile-photo">
-      </div>
-    </section>
-
-    <section class="card" id="publications">
-      <h2>Selected Publications</h2>
-
-      <div class="publication-card">
-        <div class="publication-cover-wrap">
-          <img src="assets/pub-1.jpg" alt="Publication cover 1" class="publication-cover">
-        </div>
-        <div>
-            <div class="item-title">
-                MrsNet: Multi-scale dual-domain reconstruction with spatial-spectral-masked network for hyperspectral anomaly detection
+    <main class="container">
+        <nav class="top-nav">
+            <div class="nav-name">Zhe Zhao</div>
+            <div class="nav-links">
+                <a href="#education">Education</a>
+                <a href="#publications">Publications</a>
+                <a href="#projects">Projects</a>
+                <a href="#honors">Honors & Awards</a>
             </div>
-          <div class="authors"><span class="me">Zhe Zhao</span>, Jiangluqi Song, and Yong Zhu</div>
-          <div class="highlight">
-              <span class="highlight-label">Highlight:</span>
-              this paper proposes a multi-scale dual-domain reconstruction network with a spatia-spectral masking strategy for HAD, named
-              MrsNet. Specifically, a spatial-spectral masking (SSM) module is first introduced to reduce the influence of
-              anomalies and spectral variability during feature extraction. A multi-scale dual-domain feature interaction
-              module (DFIM) is then designed to model complex backgrounds by extracting and integrating multi-scale
-              features from both spatial and frequency domains. Additionally, to compensate for potential background loss caused by masking, 
-              a smoothness prior-guided module (SPM) leverages local homogeneity to assist the decoder in background reconstruction.
-          </div>
-          <div class="muted">Pattern Recognition 179, 113925 (2026)</div>
-          <div class="muted">DOI: 10.1016/j.patcog.2026.113925</div>
-          <div class="mini-links">
-            <a class="mini-link" href="#" target="_blank">Journal</a>
-            <a class="mini-link" href="#" target="_blank">Blog Article</a>
-          </div>
-          <span class="tag">Smooth prior</span>
-          <span class="tag">Multi-scale features</span>
-          <span class="tag">Dual-domain features</span>
-        </div>
-      </div>
+        </nav>
 
-      <div class="publication-card">
-        <div class="publication-cover-wrap">
-          <img src="assets/pub-2.jpg" alt="Publication cover 2" class="publication-cover">
-        </div>
-        <div>
-            <div class="item-title">
-                Multi-scale frequency-guided two-stream network for hyperspectral anomaly detection
-            </div>
-          <div class="authors"><span class="me">Zhe Zhao</span>, Jiangluqi Song, Dong Zhao, Jiajia Zhang, Huixin Zhou, and Jun Zhou</div>
-          <div class="highlight">
-              <span class="highlight-label">Highlight:</span>
-              This paper proposed a multi-scale frequency-guided two-stream network (MFTNet) for HAD. Firstly,
-              considering the different frequency attributes of background and anomalies, we use an encoder to extract
-              features and then design a multi-scale frequency decomposition module to decompose the features into high
-              frequency (HF) part for anomalies and the low-frequency (LF) part for background. Furthermore, different
-              from anomaly suppression-based methods, we introduce a high-frequency enhancement module to highlight
-              abnormal targets in the HF part, making them stand out in the background. Meanwhile, the features from
-              the encoder contain more background information, so we fuse the encoded features and LF part features by
-              a self-attention module to accurately recover the background. Finally, we perform anomaly detection on the
-              reconstructed anomaly and background parts, respectively, and the average of those two results is the final
-              detection map.
-          </div>
-          <div class="muted">
-              International Journal of Applied Earth Observation and Geoinformation 136, 104355 (2025)
-          </div>
-          <div class="muted">DOI: 10.1016/j.jag.2025.104355</div>
-          <div class="mini-links">
-            <a class="mini-link" href="#" target="_blank">Journal</a>
-            <a class="mini-link" href="#" target="_blank">Blog Article</a>
-          </div>
-          <span class="tag">Frequency-decomposition</span>
-          <span class="tag">Two-stream network</span>
-        </div>
-      </div>
+        <!-- 个人介绍 -->
+        <section class="card hero">
+            <div>
+                <h1>Zhe Zhao</h1>
+                <p class="identity"></p>
 
-      <div class="publication-card">
-        <div class="publication-cover-wrap">
-          <img src="assets/pub-3.jpg" alt="Publication cover 3" class="publication-cover">
-        </div>
-        <div>
-            <div class="item-title">
-                Spectral-constrained global and local feature learning for hyperspectral anomaly detection
-            </div>
-            <div class="authors"><span class="me">Zhe Zhao</span>, Jiangluqi Song, Yong Zhu and Jiajia Zhang</div>
-            <div class="highlight">
-                <span class="highlight-label">Highlight:</span>
-                This paper proposed a spectral-constrained global and local feature learning network (SGLNet) for HAD. 
-                Firstly, SGLNet employs three sub-networks
-                to extract the global features, local features and spectral low-rank features from the encoding
-                features, respectively. Specifically, a memory matrix in the low-rank representation branch can
-                capture the global low-rank characteristics of HSI. For the global feature extraction branch,
-                we employ graph convolution to effectively mine global information, thereby enhancing the
-                capability of SGLNet for background modeling. Then, to make full use of the extracted features,
-                a spectral-guided feature fusion module (SFFM) is designed to integrate the features. Next, 
-                the fused features are used to predict the background of HSI. Finally, abnormal scores are obtained by combining the RX
-                detection result on the input HSI and the detection result using Mahalanobis distance on the residual image.
-            </div>
-            <div class="muted">Information Processing and Management 63, 104313 (2026)</div>
-            <div class="muted">DOI: 10.1016/j.ipm.2025.104313</div>
-            <div class="mini-links">
-                <a class="mini-link" href="#" target="_blank">Journal</a>
-            </div>
-            <span class="tag">Global features</span>
-            <span class="tag">Local features</span>
-            <span class="tag">Low-rank priors</span>
-        </div>
-      </div>
+                <p class="about-line">
+                    My name is Zhe Zhao. I received my Bachelor's and Master's degrees from Xi'an University of Technology in 2019 and 2022, respectively, and I began my doctoral studies at Xidian University in 2023. My research interests include infrared and hyperspectral image processing, as well as anomaly detection. I have authored or co-authored over ten papers, including PR, JAG, IPM, and IEEE JSTARS. In addition, I served as a reviewer for journals like IEEE TCSVT, IEEE TPAMI, JAG, PR, ESWA, KBS and IPM. I was awarded the National Scholarship for both Master's and Doctoral Students in 2021 and 2025, respectively.
+                </p>
 
-      <div class="publication-card">
-        <div class="publication-cover-wrap">
-          <img src="assets/pub-4.jpg" alt="Publication cover 4" class="publication-cover">
-        </div>
-        <div>
-            <div class="item-title">
-                Hyperspectral anomaly detection via cascaded convolutional autoencoders with adaptive pixel-level attention
-            </div>
-            <div class="authors"><span class="me">Zhe Zhao</span>, Jiangluqi Song, Mingtao You, Pei Xiang, Dong Zhao, Jiajia Zhang, Huixin Zhou, Dabao Wang, and Xiaofang Wang </div>
-            <div class="highlight">
-                <span class="highlight-label">Highlight:</span>
-                this paper proposed two Cascaded AEs with adaptive Pixel-level attention module (CAPNet) for HAD. 
-                The proposed CAPNet extracts the common features of the same materials through cascaded AEs, 
-                thus alleviating the differences caused by spectral variation.
-                Specifically, the input HSI is passed into the first AE to extract shallow features, and then the first reconstructed
-                HSI is fed into the second AE while the abnormal information is retained by skip connections. Through
-                this structure, CAPNet can effectively extract discriminative high-level semantic features, and enhance the
-                differences between anomalies and background. In addition, to reduce the redundancy of feature fusion and
-                enhance the representation of background, multiple adaptive pixel-level attention modules are embedded into
-                the decoder to guide the decoding process, so that the reconstructed data has a greater difference between
-                anomalies and background. Finally, we use Mahalanobis distance instead of reconstruction errors for anomaly
-                detection on the second reconstructed HSI.
-            </div>
-          <div class="muted">Expert Systems with Applications 279, 127366 (2025)</div>
-          <div class="muted">DOI: 10.1016/j.eswa.2025.127366</div>
-          <div class="mini-links">
-            <a class="mini-link" href="#" target="_blank">Journal</a>
-            <a class="mini-link" href="#" target="_blank">Blog Article</a>
-          </div>
-          <span class="tag">Anomaly detection</span>
-          <span class="tag">Cascaded AEs</span>
-          <span class="tag">Attention modules</span>
-        </div>
-      </div>
-    </section>
+                <p class="about-line-zh">
+                    我叫赵哲，陕西商洛人。分别于2019年和2022年在西安理工大学取得工学学士和硕士学位，2022年7月到2023年6月在西安晶晨半导体有限公司从事深度学习算法工程师工作。自2023年9月起，我在西安电子科技大学攻读博士学位，<strong>研究方向主要是红外和高光谱图像处理以及异常检测</strong>。目前，以第一作者或学生第一作者发表论文十余篇，涵盖PR、JAG、IPM、IEEE JSTARS等期刊。同时，我也担任IEEE TCSVT、IEEE TPAMI、JAG、PR、IPM等多个期刊的审稿人。此外，我曾获得硕士研究生和博士研究生国家奖学金等荣誉。
+                </p>
 
-    <section class="card" id="projects">
-      <h2>Projects</h2>
-
-      <div class="project-grid">
-        <div class="project-card">
-          <div>
-            <div class="project-title">Code for MrsNet</div>
-            <div class="project-desc">
-                Code for MrsNet: Multi-scale dual-domain reconstruction with spatial-spectral masked network for hyperspectral anomaly detection.
-            </div>
-          </div>
-          <div class="mini-links">
-            <a class="mini-link" href="#" target="_blank">GitHub</a>
-            <a class="mini-link" href="#" target="_blank">Article</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <div class="project-title">Code for MFTNet</div>
-            <div class="project-desc">
-                Code for Multi-scale frequency-guided two-stream network for hyperspectral anomaly detection.
-            </div>
-          </div>
-          <div class="mini-links">
-            <a class="mini-link" href="#" target="_blank">GitHub</a>
-            <a class="mini-link" href="#" target="_blank">Article</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <div class="project-title">Code for SGLNet</div>
-            <div class="project-desc">
-                Code for Spectral-constrained global and local feature learning for hyperspectral anomaly detection.
-            </div>
-          </div>
-          <div class="mini-links">
-            <a class="mini-link" href="#" target="_blank">GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="more-block">
-        <details>
-          <summary>See more projects</summary>
-          <div class="more-project-grid">
-            <div class="project-card">
-              <div>
-                <div class="project-title">Code for CAPNet</div>
-                <div class="project-desc">
-                    Code for Hyperspectral anomaly detection via cascaded convolutional autoencoders with adaptive pixel-level attention.
+                <div class="links">
+                    <a class="pill-link" href="mailto:23201110758@stu.xidian.edu.cn">Email</a>
+                    <a class="pill-link" href="https://github.com/xautzhaozhe/" target="_blank">GitHub</a>
+                    <a class="pill-link" href="https://scholar.google.com/citations?user=BIgfI08AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
+                    <a class="pill-link" href="https://orcid.org/0009-0003-1305-9546" target="_blank">ORCID</a>
                 </div>
-              </div>
-              <div class="mini-links">
-                <a class="mini-link" href="#" target="_blank">Link</a>
-              </div>
             </div>
 
-            <div class="project-card">
-              <div>
-                <div class="project-title">Code for MAENet</div>
-                <div class="project-desc">
-                    Code for Hyperspectral anomaly detection via memory-augmented autoencoders.
+            <div class="profile-photo-wrap">
+                <img src="assets/profile.jpg" alt="Profile photo" class="profile-photo">
+            </div>
+        </section>
+
+        <!-- 教育经历 -->
+        <section class="card" id="education">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <img class="school-logo" src="assets/university-logo-1.png" alt="University logo" onerror="this.style.display='none'">
+                    <div>
+                        <div class="timeline-time">2015.09.–2019.07：</div>
+                        <div class="timeline-title">
+                            Xi'an University of Technology, B.S. Degree
+                            <span class="zh-desc">西安理工大学，印刷工程，工学学士。</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="mini-links">
-                <a class="mini-link" href="#" target="_blank">Link</a>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div>
-                <div class="project-title">Code for TDNet</div>
-                <div class="project-desc">
-                    Code for Tensor Decomposition-Inspired Convolutional Autoencoders for Hyperspectral Anomaly Detection.
+                <div class="timeline-item">
+                    <img class="school-logo" src="assets/university-logo-2.png" alt="University logo" onerror="this.style.display='none'">
+                    <div>
+                        <div class="timeline-time">2019.09.–2022.07：</div>
+                        <div class="timeline-title">
+                            Xi'an University of Technology, M.S. Degree
+                            <span class="zh-desc">西安理工大学，轻工技术与工程，工学硕士。</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="mini-links">
-                <a class="mini-link" href="#" target="_blank">Link</a>
-              </div>
+                <div class="timeline-item">
+                    <img class="school-logo" src="assets/university-logo-3.png" alt="University logo" onerror="this.style.display='none'">
+                    <div>
+                        <div class="timeline-time">2023.09.–Present：</div>
+                        <div class="timeline-title">
+                            Xidian University, Ph.D. Degree
+                            <span class="zh-desc">西安电子科技大学，物理学，理学博士。</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </details>
-      </div>
-    </section>
+        </section>
 
-    <section class="card" id="experience">
-      <h2>Education & Experience</h2>
+        <!-- 出版物（新列表，已加粗标蓝作者，标题加链接） -->
+        <section class="card" id="publications">
+            <h2> Publications</h2>
+            <ul class="pub-list">
+                <li>
+                    <span class="pub-number">[1]</span>
+                    <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span>, J. Song*, H. Zhou*, and Y. Zhu.</span>
+                    <a href="https://doi.org/10.1016/j.patcog.2026.113925" target="_blank" class="pub-title">MrsNet: Multi-scale dual-domain reconstruction with spatial-spectral masked network for hyperspectral anomaly detection,</a>
+                    <span class="pub-journal">Pattern Recognition, 179 (2026): 113925.</span>
+                    <span class="pub-meta">(SCI一区, IF=9.1)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[2]</span>
+                    <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span>, J. Song*, D. Zhao*, J. Zhang. H. Zhou and J. Zhou.</span>
+                    <a href="https://doi.org/10.1016/j.jag.2025.104355" target="_blank" class="pub-title">Multi-scale frequency-guided two-stream network for hyperspectral anomaly detection.</a>
+                    <span class="pub-journal">International Journal of Applied Earth Observation and Geoinformation, 136 (2025): 104355.</span>
+                    <span class="pub-meta">(SCI一区, IF=8.2)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[3]</span>
+                    <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span>, J. Song*, H. Zhou*, Y. Zhu and J. Zhang.</span>
+                    <a href="https://doi.org/10.1016/j.ipm.2025.104313" target="_blank" class="pub-title">Spectral-constrained global and local feature learning for hyperspectral anomaly detection.</a>
+                    <span class="pub-journal">Information Processing & Management, 63.1 (2026): 104313.</span>
+                    <span class="pub-meta">(SCI一区, IF=8.1)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[4]</span>
+                    <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span>, J. Song*, M. You, P. Xiang*, D. Zhao*, J. Zhang, H. Zhou, D. Wang, and X. Wang.</span>
+                    <a href="https://doi.org/10.1016/j.eswa.2025.127366" target="_blank" class="pub-title">Hyperspectral anomaly detection via cascaded convolutional autoencoders with adaptive pixel-level attention.</a>
+                    <span class="pub-journal">Expert Systems with Applications, 279 (2025): 127366.</span>
+                    <span class="pub-meta">(SCI一区, IF=9.4)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[5]</span>
+                    <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span> and B. Sun*.</span>
+                    <a href="https://doi.org/10.1049/cit2.12116" target="_blank" class="pub-title">Hyperspectral anomaly detection via memory‐augmented autoencoders.</a>
+                    <span class="pub-journal">CAAI Transactions on Intelligence Technology, 8.4 (2023): 1274-1287.</span>
+                    <span class="pub-meta">(SCI一区, IF=5.1)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[6]</span>
+                    <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span>, J. Zhang, J. Song, P. Xiang, D. Zhao, and H. Zhou*.</span>
+                    <a href="https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=Sample%20similarity-guided%20spatial-spectral%20masked%20autoencoder" target="_blank" class="pub-title">Sample similarity-guided spatial-spectral masked autoencoder for hyperspectral anomaly detection.</a>
+                    <span class="pub-journal">2025 IEEE International Geoscience and Remote Sensing Symposium, 2025, pp: 986-990. IEEE.</span>
+                    <span class="pub-meta">(Oral, EI会议)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[7]</span>
+                    <span class="pub-authors">B. Sun*, <span class="pub-author-me">Z. Zhao</span>, D. Xie, et al.</span>
+                    <a href="https://doi.org/10.1016/j.ymssp.2020.106627" target="_blank" class="pub-title">Sparse spectral signal reconstruction for one proposed nine-band multispectral imaging system.</a>
+                    <span class="pub-journal">Mechanical Systems and Signal Processing, 2020, 141: 106627.</span>
+                    <span class="pub-meta">(SCI一区, IF=10.2)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[8]</span>
+                    <span class="pub-authors">B. Sun*, <span class="pub-author-me">Z. Zhao</span>, D. Liu, et al.</span>
+                    <a href="https://doi.org/10.1109/JSTARS.2022.3184874" target="_blank" class="pub-title">Tensor decomposition-inspired convolutional autoencoders for hyperspectral anomaly detection.</a>
+                    <span class="pub-journal">IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2022, 15: 4990-5000.</span>
+                    <span class="pub-meta">(SCI二区, IF=6.3)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[9]</span>
+                    <span class="pub-authors">孙帮勇, <span class="pub-author-me">赵哲</span>, 胡炳樑*, 于涛.</span>
+                    <a href="https://kns.cnki.net/kcms2/article/abstract?q=基于3D卷积自编解码器和低秩表示的高光谱异常检测" target="_blank" class="pub-title">基于3D卷积自编解码器和低秩表示的高光谱异常检测.</a>
+                    <span class="pub-journal">光子学报, 2021, 50(4): 254-266.</span>
+                    <span class="pub-meta">(中文核心)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[10]</span>
+                    <span class="pub-authors">D. Zhao, B. Hu, W. Jiang, W. Zhong, P. V. Arun, K. Cheng*, <span class="pub-author-me">Z. Zhao</span>*, H. Zhou*.</span>
+                    <a href="https://doi.org/10.1016/j.optlaseng.2025.109124" target="_blank" class="pub-title">Hyperspectral video tracker based on spectral difference matching reduction and deep spectral target perception features.</a>
+                    <span class="pub-journal">Optics and Lasers in Engineering, 2025, 194: 109124.</span>
+                    <span class="pub-meta">(SCI二区, IF=4.2, 通讯作者)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[11]</span>
+                    <span class="pub-authors">M. You, Y. Yao, D. Zhao*, <span class="pub-author-me">Z. Zhao</span>*, P. V.Arun, Y. Wang, H. Zhou, and R. Chi*.</span>
+                    <a href="https://doi.org/10.1016/j.optlaseng.2026.109657" target="_blank" class="pub-title">S3CRAD: Superpixel-guided background inpainting and spatial-spectral constrained representation for hyperspectral anomaly detection.</a>
+                    <span class="pub-journal">Optics and Lasers in Engineering, 2026, 201: 109657.</span>
+                    <span class="pub-meta">(SCI二区, IF=4.2, 通讯作者)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[12]</span>
+                    <span class="pub-authors">B. Sun*, N. Yuan, and <span class="pub-author-me">Z. Zhao</span>.</span>
+                    <a href="https://doi.org/10.1109/TII.2019.2959069" target="_blank" class="pub-title">A Hybrid Demosaicking Algorithm for Area Scan Industrial Camera Based on Fuzzy Edge Strength and Residual Interpolation
+.</a>
+                    <span class="pub-journal"> IEEE Transactions on Industrial Informatics, 2019, 16(6).</span>
+                    <span class="pub-meta">(SCI一区, IF=9.8)</span>
+                </li>
+                <li>
+                    <span class="pub-number">[13]</span>
+                    <span class="pub-authors">D. Zhao, X. Xu, M You, P V.Arun, <span class="pub-author-me">Z. Zhao</span>, J. Ren, L. Wu, H. Zhou*.</span>
+                    <a href="https://doi.org/10.1016/j.optlaseng.2026.109657" target="_blank" class="pub-title"> Local Sub-Block Contrast and Spatial-Spectral Gradient Feature Fusion for Hyperspectral Anomaly Detection
+                        .
+                    </a>
+                    <span class="pub-journal">Remote Sensing, 2025, 17: 695.</span>
+                    <span class="pub-meta">(SCI二区, IF=4.3)</span>
+                </li>
+            </ul>
+        </section>
 
-      <div class="experience-awards-grid">
-        <div class="info-panel">
-          <h3>Education & Experience</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <img class="school-logo" src="assets/university-logo-1.png" alt="University logo" onerror="this.style.display='none'">
-              <div>
-                <div class="timeline-time">2015–2019</div>
-                <div class="timeline-title">Xi'an university of Technology, B.S. Degree</div>
-              </div>
+        <!-- 项目 -->
+        <section class="card" id="projects">
+            <h2>Projects</h2>
+
+            <div class="project-grid">
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Code for MrsNet</div>
+                        <div class="project-desc">
+                            Code for MrsNet: Multi-scale dual-domain reconstruction with spatial-spectral masked network for hyperspectral anomaly detection.
+                        </div>
+                    </div>
+                    <div class="mini-links">
+                        <a class="mini-link" href="https://github.com/xautzhaozhe/MrsNet" target="_blank">Code</a>
+                        <a class="mini-link" href="https://doi.org/10.1016/j.patcog.2026.113925" target="_blank">Article</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Code for MFTNet</div>
+                        <div class="project-desc">
+                            Code for Multi-scale frequency-guided two-stream network for hyperspectral anomaly detection.
+                        </div>
+                    </div>
+                    <div class="mini-links">
+                        <a class="mini-link" href="https://github.com/xautzhaozhe/MFTNet" target="_blank">Code</a>
+                        <a class="mini-link" href="https://doi.org/10.1016/j.jag.2025.104355" target="_blank">Article</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Code for SGLNet</div>
+                        <div class="project-desc">
+                            Code for Spectral-constrained global and local feature learning for hyperspectral anomaly detection.
+                        </div>
+                    </div>
+                    <div class="mini-links">
+                        <a class="mini-link" href="https://github.com/xautzhaozhe/SGLNet" target="_blank">Code</a>
+                        <a class="mini-link" href="https://doi.org/10.1016/j.ipm.2025.104313" target="_blank">Article</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="timeline-item">
-              <img class="school-logo" src="assets/university-logo-2.png" alt="University logo" onerror="this.style.display='none'">
-              <div>
-                <div class="timeline-time">2019–2022</div>
-                <div class="timeline-title">Xi'an university of Technology, M.S. Degree</div>
-              </div>
-            </div>
+            <div class="more-block">
+                <details>
+                    <summary>See more projects</summary>
+                    <div class="more-project-grid">
+                        <div class="project-card">
+                            <div>
+                                <div class="project-title">Code for CAPNet</div>
+                                <div class="project-desc">
+                                    Code for Hyperspectral anomaly detection via cascaded convolutional autoencoders with adaptive pixel-level attention.
+                                </div>
+                            </div>
+                            <div class="mini-links">
+                                <a class="mini-link" href="https://github.com/xautzhaozhe/CAPNet" target="_blank">Code</a>
+                                <a class="mini-link" href="https://doi.org/10.1016/j.eswa.2025.127366" target="_blank">Article</a>
+                            </div>
+                        </div>
 
-            <div class="timeline-item">
-              <img class="school-logo" src="assets/university-logo-3.png" alt="University logo" onerror="this.style.display='none'">
-              <div>
-                <div class="timeline-time">2023–Present</div>
-                <div class="timeline-title">Xidian University, Ph.D. Degree</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+                        <div class="project-card">
+                            <div>
+                                <div class="project-title">Code for MAENet</div>
+                                <div class="project-desc">
+                                    Code for Hyperspectral anomaly detection via memory-augmented autoencoders.
+                                </div>
+                            </div>
+                            <div class="mini-links">
+                                <a class="mini-link" href="https://github.com/xautzhaozhe/MAENet" target="_blank">Code</a>
+                                <a class="mini-link" href="https://doi.org/10.1049/cit2.12116" target="_blank">Article</a>
+                            </div>
+                        </div>
 
-  <footer class="footer">
-    © 2026 Your Name. Built with GitHub Pages.
-  </footer>
+                        <div class="project-card">
+                            <div>
+                                <div class="project-title">Code for TDNet</div>
+                                <div class="project-desc">
+                                    Code for Tensor Decomposition-Inspired Convolutional Autoencoders for Hyperspectral Anomaly Detection.
+                                </div>
+                            </div>
+                            <div class="mini-links">
+                                <a class="mini-link" href="https://github.com/xautzhaozhe/TDNet" target="_blank">Code</a>
+                                <a class="mini-link" href="https://ieeexplore.ieee.org/document/9802669" target="_blank">Article</a>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 荣誉与奖励 -->
+        <section class="card" id="honors">
+            <h2>Honors and Awards</h2>
+            <ul class="honor-list">
+                <li>[1] 2021 年硕士研究生国家奖学金</li>
+                <li>[2] 第 16 届西安理工大学学术年会优秀论文</li>
+                <li>[3] 2022 年西安理工大学优秀毕业论文</li>
+                <li>[4] 陕西省高等学校科学技术研究优秀成果奖二等奖</li>
+                <li>[5] 2023 年西安电子科技大学一等学业奖学金</li>
+                <li>[6] 2025 年博士研究生国家奖学金</li>
+                <li>[7] 2025 年西安电子科技大学优秀博士学位论文资助基金</li>
+                <li>[8] 陕西省第九届研究生创新成果展，C 类</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        © 2026 Your Name. Built with GitHub Pages.
+    </footer>
 </body>
 </html>
