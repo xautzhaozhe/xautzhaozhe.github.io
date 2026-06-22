@@ -220,15 +220,38 @@
         }
 
         .mini-link {
-            padding: 4px 10px;
+            padding: 2px 8px;
             border: 1px solid #e1e7f0;
             background: #fbfcff;
             color: var(--link);
-            font-size: 13.5px;
-            line-height: 1.45;
+            font-size: 12.5px;
+            line-height: 1.4;
+            margin: 0 2px;
         }
 
-        /* ---- 新的论文列表样式 ---- */
+        /* ---- Publications 中的纯文本链接样式 ---- */
+        .pub-link {
+            color: var(--link);
+            font-size: inherit;
+            text-decoration: none;
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0 1px;
+            border-radius: 0;
+            display: inline;
+            white-space: normal;
+            transition: none;
+        }
+
+            .pub-link:hover {
+                text-decoration: underline;
+                background: transparent;
+                transform: none;
+                border-color: transparent;
+            }
+
+        /* ---- 论文列表样式 ---- */
         .pub-list {
             list-style: none;
             padding: 0;
@@ -264,7 +287,7 @@
         }
 
         .pub-journal {
-            color: black; /* 或 red，建议用 #cc0000 更正式 */
+            color: black;
             font-style: italic;
         }
 
@@ -278,6 +301,25 @@
             font-weight: 700;
             color: #003366;
         }
+
+        /* ---- 专利列表样式 ---- */
+        .patent-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .patent-list li {
+                padding: 4px 0;
+                border-bottom: 1px solid #f0f0f2;
+                font-size: 15px;
+                line-height: 1.5;
+                text-align: justify;
+            }
+
+                .patent-list li:last-child {
+                    border-bottom: none;
+                }
 
         /* 其余原有样式 */
         .project-grid {
@@ -402,7 +444,7 @@
         }
 
             .honor-list li {
-                padding: 8px 0;
+                padding: 4px 0;
                 border-bottom: 1px solid #f0f0f2;
                 font-size: 15px;
                 line-height: 1.5;
@@ -494,6 +536,7 @@
                 <a href="#education">Education</a>
                 <a href="#publications">Publications</a>
                 <a href="#projects">Projects</a>
+                <a href="#patents">Patents</a>
                 <a href="#honors">Honors & Awards</a>
             </div>
         </nav>
@@ -517,6 +560,7 @@
                     <a class="pill-link" href="https://github.com/xautzhaozhe/" target="_blank">GitHub</a>
                     <a class="pill-link" href="https://scholar.google.com/citations?user=BIgfI08AAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
                     <a class="pill-link" href="https://orcid.org/0009-0003-1305-9546" target="_blank">ORCID</a>
+                    <a class="pill-link" href="assets/wechat.png" target="_blank">WeChat</a>
                 </div>
             </div>
 
@@ -562,102 +606,132 @@
             </div>
         </section>
 
-        <!-- 出版物（新列表，已加粗标蓝作者，标题加链接） -->
+        <!-- 出版物 -->
         <section class="card" id="publications">
             <h2> Publications</h2>
             <ul class="pub-list">
+                <!-- [1] -->
                 <li>
                     <span class="pub-number">[1]</span>
                     <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span>, J. Song*, H. Zhou*, and Y. Zhu.</span>
-                    <a href="https://doi.org/10.1016/j.patcog.2026.113925" target="_blank" class="pub-title">MrsNet: Multi-scale dual-domain reconstruction with spatial-spectral masked network for hyperspectral anomaly detection,</a>
+                    <span class="pub-title">MrsNet: Multi-scale dual-domain reconstruction with spatial-spectral masked network for hyperspectral anomaly detection,</span>
                     <span class="pub-journal">Pattern Recognition, 179 (2026): 113925.</span>
+                    <a class="pub-link" href="https://doi.org/10.1016/j.patcog.2026.113925" target="_blank">[PDF]</a>
+                    <a class="pub-link" href="https://github.com/xautzhaozhe/MrsNet" target="_blank">[Code]</a>
                     <span class="pub-meta">(SCI一区, IF=9.1)</span>
                 </li>
+                <!-- [2] -->
                 <li>
                     <span class="pub-number">[2]</span>
                     <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span>, J. Song*, D. Zhao*, J. Zhang. H. Zhou and J. Zhou.</span>
-                    <a href="https://doi.org/10.1016/j.jag.2025.104355" target="_blank" class="pub-title">Multi-scale frequency-guided two-stream network for hyperspectral anomaly detection.</a>
+                    <span class="pub-title">Multi-scale frequency-guided two-stream network for hyperspectral anomaly detection.</span>
                     <span class="pub-journal">International Journal of Applied Earth Observation and Geoinformation, 136 (2025): 104355.</span>
+                    <a class="pub-link" href="https://doi.org/10.1016/j.jag.2025.104355" target="_blank">[PDF]</a>
+                    <a class="pub-link" href="https://github.com/xautzhaozhe/MFTNet" target="_blank">[Code]</a>
                     <span class="pub-meta">(SCI一区, IF=8.2)</span>
                 </li>
+                <!-- [3] -->
                 <li>
                     <span class="pub-number">[3]</span>
                     <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span>, J. Song*, H. Zhou*, Y. Zhu and J. Zhang.</span>
-                    <a href="https://doi.org/10.1016/j.ipm.2025.104313" target="_blank" class="pub-title">Spectral-constrained global and local feature learning for hyperspectral anomaly detection.</a>
+                    <span class="pub-title">Spectral-constrained global and local feature learning for hyperspectral anomaly detection.</span>
                     <span class="pub-journal">Information Processing & Management, 63.1 (2026): 104313.</span>
+                    <a class="pub-link" href="https://doi.org/10.1016/j.ipm.2025.104313" target="_blank">[PDF]</a>
+                    <a class="pub-link" href="https://github.com/xautzhaozhe/SGLNet" target="_blank">[Code]</a>
                     <span class="pub-meta">(SCI一区, IF=8.1)</span>
                 </li>
+                <!-- [4] -->
                 <li>
                     <span class="pub-number">[4]</span>
                     <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span>, J. Song*, M. You, P. Xiang*, D. Zhao*, J. Zhang, H. Zhou, D. Wang, and X. Wang.</span>
-                    <a href="https://doi.org/10.1016/j.eswa.2025.127366" target="_blank" class="pub-title">Hyperspectral anomaly detection via cascaded convolutional autoencoders with adaptive pixel-level attention.</a>
+                    <span class="pub-title">Hyperspectral anomaly detection via cascaded convolutional autoencoders with adaptive pixel-level attention.</span>
                     <span class="pub-journal">Expert Systems with Applications, 279 (2025): 127366.</span>
+                    <a class="pub-link" href="https://doi.org/10.1016/j.eswa.2025.127366" target="_blank">[PDF]</a>
+                    <a class="pub-link" href="https://github.com/xautzhaozhe/CAPNet" target="_blank">[Code]</a>
                     <span class="pub-meta">(SCI一区, IF=9.4)</span>
                 </li>
+                <!-- [5] -->
                 <li>
                     <span class="pub-number">[5]</span>
                     <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span> and B. Sun*.</span>
-                    <a href="https://doi.org/10.1049/cit2.12116" target="_blank" class="pub-title">Hyperspectral anomaly detection via memory‐augmented autoencoders.</a>
+                    <span class="pub-title">Hyperspectral anomaly detection via memory‐augmented autoencoders.</span>
                     <span class="pub-journal">CAAI Transactions on Intelligence Technology, 8.4 (2023): 1274-1287.</span>
+                    <a class="pub-link" href="https://doi.org/10.1049/cit2.12116" target="_blank">[PDF]</a>
+                    <a class="pub-link" href="https://github.com/xautzhaozhe/MAENet" target="_blank">[Code]</a>
                     <span class="pub-meta">(SCI一区, IF=5.1)</span>
                 </li>
+                <!-- [6] 会议，无 Code -->
                 <li>
                     <span class="pub-number">[6]</span>
                     <span class="pub-authors"><span class="pub-author-me">Z. Zhao</span>, J. Zhang, J. Song, P. Xiang, D. Zhao, and H. Zhou*.</span>
-                    <a href="https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=Sample%20similarity-guided%20spatial-spectral%20masked%20autoencoder" target="_blank" class="pub-title">Sample similarity-guided spatial-spectral masked autoencoder for hyperspectral anomaly detection.</a>
+                    <span class="pub-title">Sample similarity-guided spatial-spectral masked autoencoder for hyperspectral anomaly detection.</span>
                     <span class="pub-journal">2025 IEEE International Geoscience and Remote Sensing Symposium, 2025, pp: 986-990. IEEE.</span>
+                    <a class="pub-link" href="https://doi.org/10.1109/IGARSS55030.2025.11242636" target="_blank">[PDF]</a>
+                    <a class="pub-link" href="https://github.com/xautzhaozhe/SSMAE" target="_blank">[Code]</a>
                     <span class="pub-meta">(Oral, EI会议)</span>
                 </li>
+                <!-- [7] -->
                 <li>
                     <span class="pub-number">[7]</span>
                     <span class="pub-authors">B. Sun*, <span class="pub-author-me">Z. Zhao</span>, D. Xie, et al.</span>
-                    <a href="https://doi.org/10.1016/j.ymssp.2020.106627" target="_blank" class="pub-title">Sparse spectral signal reconstruction for one proposed nine-band multispectral imaging system.</a>
+                    <span class="pub-title">Sparse spectral signal reconstruction for one proposed nine-band multispectral imaging system.</span>
                     <span class="pub-journal">Mechanical Systems and Signal Processing, 2020, 141: 106627.</span>
+                    <a class="pub-link" href="https://doi.org/10.1016/j.ymssp.2020.106627" target="_blank">[PDF]</a>
                     <span class="pub-meta">(SCI一区, IF=10.2)</span>
                 </li>
+                <!-- [8] -->
                 <li>
                     <span class="pub-number">[8]</span>
                     <span class="pub-authors">B. Sun*, <span class="pub-author-me">Z. Zhao</span>, D. Liu, et al.</span>
-                    <a href="https://doi.org/10.1109/JSTARS.2022.3184874" target="_blank" class="pub-title">Tensor decomposition-inspired convolutional autoencoders for hyperspectral anomaly detection.</a>
+                    <span class="pub-title">Tensor decomposition-inspired convolutional autoencoders for hyperspectral anomaly detection.</span>
                     <span class="pub-journal">IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2022, 15: 4990-5000.</span>
+                    <a class="pub-link" href="https://doi.org/10.1109/JSTARS.2022.3184874" target="_blank">[PDF]</a>
+                    <a class="pub-link" href="https://github.com/xautzhaozhe/TDNet" target="_blank">[Code]</a>
                     <span class="pub-meta">(SCI二区, IF=6.3)</span>
                 </li>
+                <!-- [9] 中文 -->
                 <li>
                     <span class="pub-number">[9]</span>
                     <span class="pub-authors">孙帮勇, <span class="pub-author-me">赵哲</span>, 胡炳樑*, 于涛.</span>
-                    <a href="https://kns.cnki.net/kcms2/article/abstract?q=基于3D卷积自编解码器和低秩表示的高光谱异常检测" target="_blank" class="pub-title">基于3D卷积自编解码器和低秩表示的高光谱异常检测.</a>
+                    <span class="pub-title">基于3D卷积自编解码器和低秩表示的高光谱异常检测.</span>
                     <span class="pub-journal">光子学报, 2021, 50(4): 254-266.</span>
+                    <a class="pub-link" href="https://kns.cnki.net/kcms2/article/abstract?q=基于3D卷积自编解码器和低秩表示的高光谱异常检测" target="_blank">[PDF]</a>
                     <span class="pub-meta">(中文核心)</span>
                 </li>
+                <!-- [10] -->
                 <li>
                     <span class="pub-number">[10]</span>
                     <span class="pub-authors">D. Zhao, B. Hu, W. Jiang, W. Zhong, P. V. Arun, K. Cheng*, <span class="pub-author-me">Z. Zhao</span>*, H. Zhou*.</span>
-                    <a href="https://doi.org/10.1016/j.optlaseng.2025.109124" target="_blank" class="pub-title">Hyperspectral video tracker based on spectral difference matching reduction and deep spectral target perception features.</a>
+                    <span class="pub-title">Hyperspectral video tracker based on spectral difference matching reduction and deep spectral target perception features.</span>
                     <span class="pub-journal">Optics and Lasers in Engineering, 2025, 194: 109124.</span>
+                    <a class="pub-link" href="https://doi.org/10.1016/j.optlaseng.2025.109124" target="_blank">[PDF]</a>
                     <span class="pub-meta">(SCI二区, IF=4.2, 通讯作者)</span>
                 </li>
+                <!-- [11] -->
                 <li>
                     <span class="pub-number">[11]</span>
                     <span class="pub-authors">M. You, Y. Yao, D. Zhao*, <span class="pub-author-me">Z. Zhao</span>*, P. V.Arun, Y. Wang, H. Zhou, and R. Chi*.</span>
-                    <a href="https://doi.org/10.1016/j.optlaseng.2026.109657" target="_blank" class="pub-title">S3CRAD: Superpixel-guided background inpainting and spatial-spectral constrained representation for hyperspectral anomaly detection.</a>
+                    <span class="pub-title">S3CRAD: Superpixel-guided background inpainting and spatial-spectral constrained representation for hyperspectral anomaly detection.</span>
                     <span class="pub-journal">Optics and Lasers in Engineering, 2026, 201: 109657.</span>
+                    <a class="pub-link" href="https://doi.org/10.1016/j.optlaseng.2026.109657" target="_blank">[PDF]</a>
                     <span class="pub-meta">(SCI二区, IF=4.2, 通讯作者)</span>
                 </li>
+                <!-- [12] -->
                 <li>
                     <span class="pub-number">[12]</span>
                     <span class="pub-authors">B. Sun*, N. Yuan, and <span class="pub-author-me">Z. Zhao</span>.</span>
-                    <a href="https://doi.org/10.1109/TII.2019.2959069" target="_blank" class="pub-title">A Hybrid Demosaicking Algorithm for Area Scan Industrial Camera Based on Fuzzy Edge Strength and Residual Interpolation
-.</a>
+                    <span class="pub-title">A Hybrid Demosaicking Algorithm for Area Scan Industrial Camera Based on Fuzzy Edge Strength and Residual Interpolation.</span>
                     <span class="pub-journal"> IEEE Transactions on Industrial Informatics, 2019, 16(6).</span>
+                    <a class="pub-link" href="https://doi.org/10.1109/TII.2019.2959069" target="_blank">[PDF]</a>
                     <span class="pub-meta">(SCI一区, IF=9.8)</span>
                 </li>
+                <!-- [13] -->
                 <li>
                     <span class="pub-number">[13]</span>
                     <span class="pub-authors">D. Zhao, X. Xu, M You, P V.Arun, <span class="pub-author-me">Z. Zhao</span>, J. Ren, L. Wu, H. Zhou*.</span>
-                    <a href="https://doi.org/10.1016/j.optlaseng.2026.109657" target="_blank" class="pub-title"> Local Sub-Block Contrast and Spatial-Spectral Gradient Feature Fusion for Hyperspectral Anomaly Detection
-                        .
-                    </a>
+                    <span class="pub-title">Local Sub-Block Contrast and Spatial-Spectral Gradient Feature Fusion for Hyperspectral Anomaly Detection.</span>
                     <span class="pub-journal">Remote Sensing, 2025, 17: 695.</span>
+                    <a class="pub-link" href="https://doi.org/10.1016/j.optlaseng.2026.109657" target="_blank">[PDF]</a>
                     <span class="pub-meta">(SCI二区, IF=4.3)</span>
                 </li>
             </ul>
@@ -755,18 +829,49 @@
             </div>
         </section>
 
+        <!-- 专利信息 -->
+        <section class="card" id="patents">
+            <h2>Patents</h2>
+            <ul class="patent-list">
+                <li>
+                    [1] 中国发明专利. <span class="pub-author-me">赵哲</span>，宋江鲁奇，等. 一种基于多尺度频率分解的双路高光谱异常检测方法，申请日期 2024.08.06，申请公布号 CN 118447399A.
+                </li>
+                <li>
+                    [2] 中国发明专利. <span class="pub-author-me">赵哲</span>，宋江鲁奇，等. 一种基于样本相似性引导和空间光谱掩码自编码器的高光谱异常检测方法，申请日期2025.06.27，申请公布号 CN 120219916 A.
+                </li>
+                <li>
+                    [3] 中国发明专利. <span class="pub-author-me">赵哲</span>，宋江鲁奇，等. 一种基于双域多尺度特征重构的高光谱异常检测方法，申请日期 2025.11.28，申请公布号 CN121305370A.
+                </li>
+                <li>
+                    [4] 中国发明专利. 宋江鲁奇，<span class="pub-author-me">赵哲</span>，等. 全局和局部特征学习的高光谱异常检测方法、系统及介质，申请日期 2024.12.19，授权公告号：CN 119919799 B.
+                </li>
+                <li>
+                    [5] 中国发明专利. 孙帮勇，<span class="pub-author-me">赵哲</span>. 一种基于全卷积级联自编码器的高光谱异常检测方法，申请日期 2022.11.18，授权公告号 CN113379859 B.
+                </li>
+                <li>
+                    [6] 中国发明专利. 孙帮勇，<span class="pub-author-me">赵哲</span>. 一种基于注意力自编码网络的高光谱异常检测方法，申请日期 2023.07.25，授权公告号 CN112434571 B.
+                </li>
+                <li>
+                    [7] 中国发明专利. 宋江鲁奇，<span class="pub-author-me">赵哲</span>，等. 一种基于空谱注意力增强和盲点U-Net网络的高光谱异，申请日期 2026.01.22，申请公布号 CN121962633A.
+                </li>
+            </ul>
+        </section>
+
         <!-- 荣誉与奖励 -->
         <section class="card" id="honors">
             <h2>Honors and Awards</h2>
             <ul class="honor-list">
                 <li>[1] 2021 年硕士研究生国家奖学金</li>
-                <li>[2] 第 16 届西安理工大学学术年会优秀论文</li>
-                <li>[3] 2022 年西安理工大学优秀毕业论文</li>
-                <li>[4] 陕西省高等学校科学技术研究优秀成果奖二等奖</li>
-                <li>[5] 2023 年西安电子科技大学一等学业奖学金</li>
-                <li>[6] 2025 年博士研究生国家奖学金</li>
-                <li>[7] 2025 年西安电子科技大学优秀博士学位论文资助基金</li>
-                <li>[8] 陕西省第九届研究生创新成果展，C 类</li>
+                <li>[2] 2021 年西安理工大学二等学业奖学金</li>
+                <li>[3] 第 16 届西安理工大学学术年会优秀论文</li>
+                <li>[4] 2022 年西安理工大学优秀毕业论文</li>
+                <li>[5] 陕西省高等学校科学技术研究优秀成果奖二等奖</li>
+                <li>[6] 2023 年西安电子科技大学一等学业奖学金</li>
+                <li>[7] 2024 年西安电子科技大学二等学业奖学金</li>
+                <li>[8] 2025 年博士研究生国家奖学金</li>
+                <li>[9] 2025 年博士研究生国家奖学金</li>
+                <li>[10] 2025 年西安电子科技大学研究生创新基金</li>
+                <li>[11] 陕西省第九届研究生创新成果展，C 类</li>
             </ul>
         </section>
 
